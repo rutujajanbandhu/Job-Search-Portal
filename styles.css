@@ -1,67 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IIT Careers</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="navbar-brand">IIT Careers</div>
-        <div class="navbar-links">
-            <a href="#">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn">Opportunities</button>
-                <div class="dropdown-content">
-                    <a href="#">Internships</a>
-                    <a href="#">Full-time</a>
-                </div>
-            </div>
-            <a href="#">Procedure</a>
-        </div>
-        <div class="navbar-auth">
-            <input type="text" placeholder="Search" id="search-bar">
-            <button id="search-button">Search</button>
-            <div class="dropdown">
-                <button class="dropbtn">Login</button>
-                <div class="dropdown-content">
-                    <a href="#" id="show-recruiter-login">Recruiter</a>
-                    <a href="#" id="show-student-login">Student</a>
-                </div>
-            </div>
-            <a href="#">Logout</a>
-        </div>
-    </nav>
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
 
-    <div id="recruiter-login" class="login-container hidden">
-        <h2>Recruiter Login</h2>
-        <form id="recruiter-form">
-            <input type="email" placeholder="Enter email" required>
-            <input type="password" placeholder="Enter password" required>
-            <div class="login-buttons">
-                <button type="button" class="register-button">Register</button>
-                <button type="submit" class="login-button">Login</button>
-            </div>
-            <div class="google-login">
-                <span>OR</span>
-                <button type="button" class="google-signin">Sign in with Google</button>
-            </div>
-        </form>
-    </div>
+.navbar {
+    background-color: #4aca43;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    <div id="student-login" class="login-container hidden">
-        <h2>Student Login</h2>
-        <form id="student-form">
-            <input type="text" placeholder="Enter LDAP ID" required>
-            <input type="password" placeholder="Enter LDAP Password" required>
-            <div class="login-buttons">
-                <button type="reset" class="clear-button">Clear</button>
-                <button type="submit" class="login-button">Login</button>
-            </div>
-        </form>
-    </div>
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.navbar-links, .navbar-auth {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links a, .navbar-auth a, .dropbtn, #search-button {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#search-bar {
+    padding: 8px 16px;
+    margin-right: 20px;
+    border: 1px solid #57d171;
+    border-radius: 8px;
+}
+
+.navbar-links a:hover, .navbar-auth a:hover, .dropbtn:hover, #search-button:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.login-container {
+    width: 300px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-buttons button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+.login-button {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.login-button:hover {
+    background-color: #218838;
+}
+
+.clear-button {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.clear-button:hover {
+    background-color: #e0a800;
+}
+
+.google-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.google-login span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.google-signin {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.google-signin:hover {
+    background-color: #f1f1f1;
+}
